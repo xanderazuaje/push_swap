@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_arguments.c                                  :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 03:34:11 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 03:50:31 by xazuaje-         ###   ########.fr       */
+/*   Created: 2024/04/01 07:52:29 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/01 07:58:14 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-char	*merge_arguments(int argc, char **argv)
-{
-	char	*line;
-	char	*to_free;
+int		is_input_valid(char *input);
+char	*merge_arguments(int argc, char **argv);
 
-	line = NULL;
-	while (argc > 1)
-	{
-		to_free = line;
-		line = ft_strjoin(argv[argc - 1], line);
-		free(to_free);
-		to_free = line;
-		line = ft_strjoin(" ", line);
-		free(to_free);
-		argc--;
-	}
-	to_free = line;
-	line = ft_strjoin(line, " ");
-	free(to_free);
-	return (line);
-}
+#endif

@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clear_tree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/30 06:14:56 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 07:53:34 by xazuaje-         ###   ########.fr       */
+/*   Created: 2024/04/01 06:56:55 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/01 06:56:55 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "_parser.h"
 
-int	main(int argc, char **argv)
+void	clear_tree(t_btree *first_node)
 {
-	char	*line;
+	t_btree	*node;
 
-	if (argc == 1)
+	node = first_node;
+	while (1)
 	{
-		ft_putstr_fd("Error\n", 2);
-		return (0);
+		if (node->left != NULL)
+			node = node->left;
+		else if (node->right != NULL)
+			node = node->right;
+		else
+		{
+			if (node->parent == NULL)
+			{
+				free(node);
+				return ;
+			}
+			node = node->parent;
+			free(node->left);
+			free(node->right);
+			node->left = NULL;
+			node->right = NULL;
+		}
 	}
-	else
-	{
-		line = merge_arguments(argc, argv);
-		if (!line)
-			return (ft_putstr_fd("Error\n", 2), 0);
-	}
-	is_input_valid(line);
-	free(line);
-	return (0);
 }

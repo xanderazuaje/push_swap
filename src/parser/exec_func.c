@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "_parser.h"
 
 void	(*exec_func(size_t prev, size_t curr))(void *data, t_automata *automata)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "_parser.h"
 
 static void	skip_spaces(size_t *i, const char *str)
 {

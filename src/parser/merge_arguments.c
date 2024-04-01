@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_tree.c                                       :+:      :+:    :+:   */
+/*   merge_arguments.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 06:56:55 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 06:56:55 by xazuaje-         ###   ########.fr       */
+/*   Created: 2024/04/01 03:34:11 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/01 03:50:31 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "_parser.h"
 
-void	clear_tree(t_btree *first_node)
+char	*merge_arguments(int argc, char **argv)
 {
-	t_btree	*node;
+	char	*line;
+	char	*to_free;
 
-	node = first_node;
-	while (1)
+	line = NULL;
+	while (argc > 1)
 	{
-		if (node->left != NULL)
-			node = node->left;
-		else if (node->right != NULL)
-			node = node->right;
-		else
-		{
-			if (node->parent == NULL)
-			{
-				free(node);
-				return ;
-			}
-			node = node->parent;
-			free(node->left);
-			free(node->right);
-			node->left = NULL;
-			node->right = NULL;
-		}
+		to_free = line;
+		line = ft_strjoin(argv[argc - 1], line);
+		free(to_free);
+		to_free = line;
+		line = ft_strjoin(" ", line);
+		free(to_free);
+		argc--;
 	}
+	to_free = line;
+	line = ft_strjoin(line, " ");
+	free(to_free);
+	return (line);
 }

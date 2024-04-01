@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "_parser.h"
 
 void	ft_error(void *data, t_automata *automata)
 {
