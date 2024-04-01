@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:20:59 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 06:48:05 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/01 07:22:29 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define L 0
 #define R 1
 
-static t_bool	alloc_node(t_btree **node, const int8_t dir)
+static t_bool	alloc_node(t_btree *node, const int8_t dir)
 {
 	t_btree	*child;
 
@@ -23,38 +23,29 @@ static t_bool	alloc_node(t_btree **node, const int8_t dir)
 	{
 		return (FALSE);
 	}
-	child->parent = *node;
+	child->parent = node;
 	if (dir == L)
-		(*node)->left = child;
+		node->left = child;
 	else
-		(*node)->right = child;
+		node->right = child;
 	return (TRUE);
 }
 
-void	clear_tree(t_btree *first_node)
+static void	assign_node(int value, t_btree **node, t_automata *automata)
 {
-	t_btree	*node;
-
-	node = first_node;
-	while (1)
+	if (value < (*node)->value)
 	{
-		if (node->left != NULL)
-			node = node->left;
-		else if (node->right != NULL)
-			node = node->right;
-		else
-		{
-			if (node->parent == NULL)
-			{
-				free(node);
-				return ;
-			}
-			node = node->parent;
-			free(node->left);
-			free(node->right);
-			node->left = NULL;
-			node->right = NULL;
-		}
+		if (!(*node)->left)
+			if (!alloc_node(*node, L))
+				ft_error(NULL, automata);
+		*node = (*node)->left;
+	}
+	else if (value > (*node)->value)
+	{
+		if (!(*node)->right)
+			if (!alloc_node(*node, R))
+				ft_error(NULL, automata);
+		*node = (*node)->right;
 	}
 }
 
@@ -62,37 +53,17 @@ void	add_node(void *data, t_automata *automata)
 {
 	t_btree	*node;
 	int		value;
+
 	(void) data;
-
-
 	value = ft_atoi_del(data, automata);
 	node = automata->node;
 	while (1)
 	{
-		if (node->settled == 0)
-		{
-			node->value = value;
-			node->settled = TRUE;
-			return ;
-		}
+		if (!node->settled)
+			return (node->value = value, node->settled = TRUE, (void) NULL);
 		if (node->value == value)
-		{
-			clear_tree(automata->node);
-			ft_error(NULL, NULL);
-		}
-		else if (value < node->value)
-		{
-			if(!node->left)
-				if (!alloc_node(&node, L))
-					ft_error(NULL, NULL);
-			node = node->left;
-		}
-		else if (value > node->value)
-		{
-			if(!node->right)
-				if (!alloc_node(&node, R))
-					ft_error(NULL, NULL);
-			node = node->right;
-		}
+			ft_error(NULL, automata);
+		else
+			assign_node(value, &node, automata);
 	}
 }

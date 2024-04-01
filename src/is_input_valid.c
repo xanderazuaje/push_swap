@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 03:40:12 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 06:48:57 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/01 07:23:34 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	init_parser(t_automata *parser)
 	parser->curr_state = INIT;
 	parser->prev_state = INIT;
 	parser->node = ft_calloc(1, sizeof (t_btree));
-	if(!parser->node)
+	if (!parser->node)
 		ft_error(NULL, NULL);
 }
 
