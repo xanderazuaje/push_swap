@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:58:33 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 03:30:37 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/01 07:23:57 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int	ft_atoi_del(char *str, t_automata *parser)
 		parser->prev++;
 	}
 	parser->prev = parser->curr;
-	return res * sign;
+	return (res * sign);
 }
