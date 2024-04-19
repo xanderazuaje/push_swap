@@ -5,8 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/05 05:33:57 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/05 05:34:13 by xazuaje-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_input.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 03:40:12 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 07:23:34 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/05 05:20:18 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +31,12 @@ static void	init_parser(t_automata *parser)
 	parser->curr_state = INIT;
 	parser->prev_state = INIT;
 	parser->node = ft_calloc(1, sizeof (t_btree));
+	parser->list_start = NULL;
 	if (!parser->node)
 		ft_error(NULL, NULL);
 }
 
-int	is_input_valid(char *input)
+int		parse_input(char *input, t_dlist **list)
 {
 	t_automata	parser;
 	void		(*fn)(void *data, t_automata *automata);
@@ -46,5 +59,6 @@ int	is_input_valid(char *input)
 		parser.curr++;
 	}
 	clear_tree(parser.node);
+	*list = parser.list_start;
 	return (1);
 }

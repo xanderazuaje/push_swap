@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: xazuaje- <xazuaje-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 07:56:17 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 08:09:20 by xazuaje-         ###   ########.fr       */
+/*   Created: 2023/09/20 23:01:23 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/05 05:29:33 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "lists.h"
 
-# include "../lib/libft/libft.h"
-# include "parser/parser.h"
-# include "lists/lists.h"
-# include "movements/movements.h"
+t_dlist	*lstnew(int value)
+{
+	t_dlist	*new_list;
 
-#endif
+	new_list = (t_dlist *)malloc(sizeof(t_dlist));
+	if (!new_list)
+		return (0);
+	new_list->value = value;
+	new_list->next = NULL;
+	return (new_list);
+}

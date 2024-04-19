@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:20:59 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 07:22:29 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/05 05:23:40 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,15 @@ void	add_node(void *data, t_automata *automata)
 	while (1)
 	{
 		if (!node->settled)
-			return (node->value = value, node->settled = TRUE, (void) NULL);
+		{
+			node->value = value;
+			node->settled = TRUE;
+			if(!automata->list_start)
+				automata->list_start = lstnew(value);
+			else
+				lstappend(automata->list_start, value);
+			return ;
+		}
 		if (node->value == value)
 			ft_error(NULL, automata);
 		else

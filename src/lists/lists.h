@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lists.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/30 06:14:56 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 06:21:06 by xazuaje-         ###   ########.fr       */
+/*   Created: 2024/04/04 04:12:36 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/05 07:27:15 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "stdio.h"
+#ifndef LISTS_H
+# define LISTS_H
+# include <stdlib.h>
 
-int	main(int argc, char **argv)
+typedef struct s_dlist
 {
-	char	*line;
-	t_dlist *list;
+	int				value;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}	t_dlist;
 
-	list = NULL;
-	if (argc == 1)
-		return (ft_putstr_fd("Error\n", 2), 0);
-	line = merge_arguments(argc, argv);
-	if (!line)
-		return (ft_putstr_fd("Error\n", 2), 0);
-	parse_input(line, &list);
-	free(line);
-	return (0);
-}
+t_dlist	*lstnew(int value);
+t_dlist	*lstappend(t_dlist *node, int value);
+t_dlist	*lstshift(t_dlist *node, int value);
+void	lstclear(t_dlist *lst);
+void	lstpop(t_dlist **list);
+#endif

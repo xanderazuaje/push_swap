@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lstshift.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/30 06:14:56 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 06:21:06 by xazuaje-         ###   ########.fr       */
+/*   Created: 2024/04/05 04:49:18 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/04/05 04:58:28 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "stdio.h"
+#include "lists.h"
 
-int	main(int argc, char **argv)
+t_dlist	*lstshift(t_dlist *node, int value)
 {
-	char	*line;
-	t_dlist *list;
+	t_dlist	*new_node;
 
-	list = NULL;
-	if (argc == 1)
-		return (ft_putstr_fd("Error\n", 2), 0);
-	line = merge_arguments(argc, argv);
-	if (!line)
-		return (ft_putstr_fd("Error\n", 2), 0);
-	parse_input(line, &list);
-	free(line);
-	return (0);
+	if (!node)
+		return (NULL);
+	while (node->prev)
+		node = node->prev;
+	new_node = (t_dlist *)malloc(sizeof(t_dlist));
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->prev = NULL;
+	new_node->next = node;
+	node->prev = new_node;
+	return (new_node);
 }
