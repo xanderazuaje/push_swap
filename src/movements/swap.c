@@ -18,6 +18,8 @@ static void	swap(t_dlist **list)
 	t_dlist	*second;
 	t_dlist	*third;
 
+	if(!(*list)->next)
+		return;
 	first = *list;
 	second = first->next;
 	third = second->next;

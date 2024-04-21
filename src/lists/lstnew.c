@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 23:01:23 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 05:29:33 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/19 07:39:29 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ t_dlist	*lstnew(int value)
 		return (0);
 	new_list->value = value;
 	new_list->next = NULL;
+	new_list->index = -1;
+	new_list->weight = -1;
 	return (new_list);
 }

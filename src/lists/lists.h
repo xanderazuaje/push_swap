@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 04:12:36 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 07:27:15 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/19 06:47:32 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 typedef struct s_dlist
 {
 	int				value;
+	int				index;
+	int 			weight;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }	t_dlist;

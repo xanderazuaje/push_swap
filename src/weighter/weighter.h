@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_tree.c                                       :+:      :+:    :+:   */
+/*   weighter.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: xander <xander@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 06:56:55 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/20 02:13:05 by xander           ###   ########.fr       */
+/*   Created: 2024/04/19 06:50:19 by xander            #+#    #+#             */
+/*   Updated: 2024/04/19 07:48:28 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_parser.h"
+#ifndef WEIGHTER_H
+#define WEIGHTER_H
 
-void clear_tree(t_btree *node)
-{
-	if (node == NULL)
-		return;
+# include "../lists/lists.h"
 
-	clear_tree(node->left);
-	clear_tree(node->right);
+void weight_list(t_dlist *list_a, t_dlist *list_b);
+void assign_index(t_dlist *list_a);
+void assign_weight(t_dlist *node, t_dlist *list_a);
 
-	free(node);
-}
+#endif

@@ -26,6 +26,8 @@ t_dlist	*lstshift(t_dlist *node, int value)
 	new_node->value = value;
 	new_node->prev = NULL;
 	new_node->next = node;
+	new_node->index = -1;
+	new_node->weight = -1;
 	node->prev = new_node;
 	return (new_node);
 }

@@ -26,6 +26,8 @@ t_dlist	*lstappend(t_dlist *node, int value)
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->prev = node;
+	new_node->index = -1;
+	new_node->weight = -1;
 	node->next = new_node;
 	return (new_node);
 }

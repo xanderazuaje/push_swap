@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 07:59:58 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 08:05:40 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/04/20 22:40:30 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void rotate(t_dlist **list)
 	t_dlist *prev;
 	t_dlist *i;
 
+	if(!*list || !(*list)->next)
+		return;
 	prev = *list;
 	(*list) = (*list)->next;
 	(*list)->prev = NULL;
@@ -24,18 +26,23 @@ static void rotate(t_dlist **list)
 	while (i->next)
 		i = i->next;
 	i->next = prev;
+	prev->next = NULL;
 }
 
 static void rev_rotate(t_dlist **list)
 {
 	t_dlist *i;
 
+	if(!*list || !(*list)->next)
+		return;
 	i = (*list);
 	while (i->next)
 		i = i->next;
 	i->next = *list;
+	i->prev->next = NULL;
+	i->prev = NULL;
 	(*list)->prev = i;
-	*list = (*list)->prev;
+	*list = i;
 }
 
 void ra(t_dlist **list_a)
