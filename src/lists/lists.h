@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 04:12:36 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/19 06:47:32 by xander           ###   ########.fr       */
+/*   Updated: 2024/05/25 16:09:10 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,20 @@ typedef struct s_dlist
 {
 	int				value;
 	int				index;
-	int 			weight;
+	int				weight;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }	t_dlist;
 
+typedef struct s_central
+{
+	t_dlist	*list_a;
+	t_dlist	*list_b;
+	t_dlist	*pivot;
+}	t_central;
+
 t_dlist	*lstnew(int value);
 t_dlist	*lstappend(t_dlist *node, int value);
-t_dlist	*lstshift(t_dlist *node, int value);
 void	lstclear(t_dlist *lst);
-void	lstpop(t_dlist **list);
+int8_t	is_ordered(t_dlist *list);
 #endif

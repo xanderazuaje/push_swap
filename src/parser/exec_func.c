@@ -14,7 +14,7 @@
 
 void	(*exec_func(size_t prev, size_t curr))(void *data, t_automata *automata)
 {
-	void	(*fns[5][5])(void *data, t_automata *automata) = {
+	static	void	(*fns[5][5])(void *data, t_automata *automata) = {
 	{ft_error, ft_error, NULL, NULL, NULL},
 	{ft_error, ft_error, ft_error, ft_error, ft_error},
 	{ft_error, ft_error, NULL, add_node, ft_error},

@@ -6,19 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 05:33:57 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 05:34:13 by xazuaje-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_input.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 03:40:12 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 05:20:18 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:41:59 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +24,7 @@ static void	init_parser(t_automata *parser)
 		ft_error(NULL, NULL);
 }
 
-int		parse_input(char *input, t_dlist **list)
+int	parse_input(char *input, t_dlist **list)
 {
 	t_automata	parser;
 	void		(*fn)(void *data, t_automata *automata);

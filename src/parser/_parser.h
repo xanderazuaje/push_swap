@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:26:58 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/05 05:33:57 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:51:29 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 # define NUMB 2
 # define SPAC 3
 # define SIGN 4
-
 # include "../../lib/libft/libft.h"
-#include "../lists/lists.h"
+# include "../lists/lists.h"
 
 typedef struct s_btree
 {
@@ -39,7 +38,7 @@ typedef struct s_automata
 	int		curr_state;
 	int		prev_state;
 	t_btree	*node;
-	t_dlist *list_start;
+	t_dlist	*list_start;
 }	t_automata;
 
 void	ft_error(void *data, t_automata *automata);

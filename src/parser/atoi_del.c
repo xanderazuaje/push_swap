@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 05:58:33 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/04/01 07:23:57 by xazuaje-         ###   ########.fr       */
+/*   Updated: 2024/05/25 15:51:12 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	check_sign(size_t *i, const char *str, int *sign)
 
 int	ft_atoi_del(char *str, t_automata *parser)
 {
-	int			res;
-	int			sign;
+	long	res;
+	int		sign;
 
 	res = 0;
 	sign = 1;
@@ -45,5 +45,7 @@ int	ft_atoi_del(char *str, t_automata *parser)
 		parser->prev++;
 	}
 	parser->prev = parser->curr;
-	return (res * sign);
+	if (res * sign > INT_MAX || res * sign < INT_MIN)
+		ft_error(NULL, parser);
+	return ((int)(res * sign));
 }

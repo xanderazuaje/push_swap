@@ -6,17 +6,18 @@
 /*   By: xander <xander@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 06:50:19 by xander            #+#    #+#             */
-/*   Updated: 2024/04/19 07:48:28 by xander           ###   ########.fr       */
+/*   Updated: 2024/05/25 16:03:57 by xander           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEIGHTER_H
-#define WEIGHTER_H
+# define WEIGHTER_H
 
 # include "../lists/lists.h"
+# include <limits.h>
 
-void weight_list(t_dlist *list_a, t_dlist *list_b);
-void assign_index(t_dlist *list_a);
-void assign_weight(t_dlist *node, t_dlist *list_a);
+void	assign_index(t_dlist *list_a);
+int		get_max_index(t_dlist *list);
+int		get_min_index(t_dlist *list);
 
 #endif
