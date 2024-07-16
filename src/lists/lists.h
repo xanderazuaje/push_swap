@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 04:12:36 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/05/25 16:09:10 by xander           ###   ########.fr       */
+/*   Updated: 2024/07/16 05:04:07 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ t_dlist	*lstnew(int value);
 t_dlist	*lstappend(t_dlist *node, int value);
 void	lstclear(t_dlist *lst);
 int8_t	is_ordered(t_dlist *list);
+int		count_list(t_dlist *list);
 #endif

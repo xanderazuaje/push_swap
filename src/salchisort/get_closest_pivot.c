@@ -16,7 +16,7 @@ void	travel(t_dlist *list, int pivot, t_traveler *traveler)
 {
 	while (list)
 	{
-		if (!traveler->start && list->index < pivot)
+		if (traveler->start == NULL && list->index < pivot)
 		{
 			traveler->up = traveler->total;
 			traveler->start = list;

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   count_elems.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: xazuaje- <xazuaje-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: xazuaje- <xazuaje-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/16 17:41:56 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/07/16 06:19:16 by xazuaje-         ###   ########.fr       */
+/*   Created: 2024/07/16 05:02:34 by xazuaje-          #+#    #+#             */
+/*   Updated: 2024/07/16 05:07:10 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "lists.h"
 
-char	*ft_strdup(const char *s1)
+int	count_list(t_dlist *list)
 {
-	size_t	len;
-	char	*new;
+	int	i;
 
-	len = ft_strlen(s1);
-	new = malloc(len + 1);
-	if (new == 0)
-		return (0);
-	ft_memcpy(new, s1, len);
-	new[len] = 0;
-	return (new);
+	i = 0;
+	while (list)
+	{
+		i++;
+		list = list->next;
+	}
+	return (i);
 }

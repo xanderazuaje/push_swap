@@ -6,7 +6,7 @@
 /*   By: xander <xander@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 16:29:33 by xander            #+#    #+#             */
-/*   Updated: 2024/05/25 16:44:23 by xander           ###   ########.fr       */
+/*   Updated: 2024/07/16 06:07:54 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort(t_central *lists, int proportion, int pivot, int max)
 	}
 }
 
-void	chunk_separation(t_central *lists, int argc)
+void	chunk_separation(t_central *lists, int count)
 {
 	int	proportion;
 	int	pivot;
@@ -59,18 +59,18 @@ void	chunk_separation(t_central *lists, int argc)
 		return ;
 	if (is_ordered(lists->list_a))
 		return ;
-	if (argc > 10)
-		argc = argc / (argc / 10);
+	if (count > 10)
+		count = count / (count / 10);
 	else
-		argc = 5;
+		count = 3;
 	max = get_max_index(lists->list_a);
-	proportion = get_min_index(lists->list_a) + (max / argc);
+	proportion = get_min_index(lists->list_a) + (max / count);
 	if (proportion > max)
 		proportion = max;
-	pivot = get_min_index(lists->list_a) + (max / (argc * 2));
+	pivot = get_min_index(lists->list_a) + (max / (count * 2));
 	while (has_smth_to_push(lists->list_a, pivot) && lists->list_a->next)
 	{
 		sort(lists, proportion, pivot, max);
 	}
-	chunk_separation(lists, argc);
+	chunk_separation(lists, count);
 }

@@ -6,7 +6,7 @@
 /*   By: xazuaje- <xazuaje-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:03:18 by xazuaje-          #+#    #+#             */
-/*   Updated: 2024/05/25 14:55:55 by xander           ###   ########.fr       */
+/*   Updated: 2024/07/16 05:48:55 by xazuaje-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	lstclear(t_dlist *lst)
 {
-	if (!lst)
+	t_dlist	*tmp;
+
+	if (lst == NULL)
 		return ;
-	while (lst->next)
+	while (lst)
 	{
+		tmp = lst;
 		lst = lst->next;
-		free(lst->prev);
+		free(tmp);
 	}
-	free(lst);
 }

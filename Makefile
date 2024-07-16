@@ -17,6 +17,7 @@ SRC_FILES := $(SRC_DIR)/main.c \
 	$(SRC_DIR)/parser/merge_arguments.c \
 	$(SRC_DIR)/parser/is_input_valid.c \
 	$(SRC_DIR)/parser/clear_tree.c \
+	$(SRC_DIR)/lists/count_elems.c \
 	$(SRC_DIR)/lists/lstnew.c \
 	$(SRC_DIR)/lists/lstappend.c \
 	$(SRC_DIR)/lists/lstclear.c \
